@@ -2,6 +2,14 @@
 #!/bin/bash
 
 export DEBIAN_FRONTEND=noninteractive
+#apt -y -o Acquire::ForceIPv4=true update
+#apt-get -y -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" upgrade
+#apt -y install apt-transport-https ca-certificates curl software-properties-common git
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#apt-key fingerprint 0EBFCD88
+#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+#apt -y -o Acquire::ForceIPv4=true update
+#apt -y install docker-ce
 systemctl start docker
 systemctl enable docker
 docker pull ubuntu
@@ -22,25 +30,26 @@ systemctl start fail2ban
 #apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libminiupnpc-dev libgmp3-dev libdb-dev libdb++-dev libgmp3-dev
 sudo apt install -y software-properties-common && sudo add-apt-repository ppa:bitcoin/bitcoin && sudo apt update && sudo apt upgrade -y && sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf && sudo apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils && sudo apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git && sudo apt install -y libminiupnpc-dev libzmq5
 cd /root
-git clone https://github.com/solarium-community/solarium.git solariumcoin
-cd solariumcoin/src
-#make -f makefile.unix USE_UPNP=-1
-make -f makefile.unix
-#strip Solariumd
-#mv Solariumd ~/solarium
-#cd ~/solarium
-#rm -rf solarium
+git clone https://github.com/solarium-community/solarium
+cd solarium/src
+make -f makefile.unix USE_UPNP=-1
+#make -f makefile.unix
+strip Solariumd
+mv Solariumd ~/solarium
+cd ~/solarium
+rm -rf solarium
 
 #BOOTSTRAP CHAIN FILE
-#apt-get -y install unzip
-
+apt-get -y install unzip
 
 #COMMENT OUT SEED NODE
 
-cd /root/solariumcoin/src
-rm /root/solariumcoin/src/Dockerfile
+
+#cd && mkdir .Solarium && nano .Solarium/Solarium.conf
+cd /root/solarium/src
+rm /root/solarium/src/Dockerfile
 wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariumcoinmasternode/Dockerfile
-docker build -t "solariumcoinmasternode" .
+docker build -t "solariummasternode" .
 
 #SETUP WEB SERVER FOR MASTER NODE KEY
 openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs/ssl-cert-snakeoil.pem -keyout /etc/ssl/private/ssl-cert-snakeoil.key -subj "/C=AB/ST=AB/L=AB/O=IT/CN=mastertoad"
