@@ -28,9 +28,9 @@ while inotifywait -e modify /var/www/masternodeprivkey/masternodeprivkey.txt; do
   docker cp /root/solarium.conf solariummasternode:/root/.solarium/solarium.conf
   docker commit solariummasternode solariummasternode
   docker container rm solariummasternode
-  docker run -d --restart always -p 4848:4848 --name solariummasternode solariummasternode /root/.solarium/Solariumd -datadir=/root/.solarium -conf=/root/.solarium/solarium.conf
+  docker run -d --restart always -p 4848:4848 --name solariummasternode solariummasternode /root/.Solarium/Solariumd -datadir=/root/.Solarium/ -conf=/root/.Solarium/solarium.conf
   #cd /root/chainfile
-  #docker cp ./ solariummasternode:/root/.solarium/
+  #docker cp ./ solariummasternode:/root/.Solarium/
   #docker stop solariummasternode
   docker start solariummasternode
   systemctl stop apache2
