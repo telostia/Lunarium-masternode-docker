@@ -1,7 +1,9 @@
-# CryptoHawaii Pepe/Meme Coin Docker 
+# fork and credits go to CryptoHawaii Pepe/Meme Coin Docker 
+# original github: https://github.com/CryptoHawaii-com/pepecoin-Dockerfiles
+# Modified to work with Lunarium ( Currently Solarium(SLRC) community coin)
 
 ### Details:
-Memetic Master Node - Ideally this is run on 2 CPU(s).
+Lunarium Master Node - Ideally this is run on 2 CPU(s).
 
 What the script does: 
 
@@ -10,8 +12,7 @@ Installs docker and builds 2 docker containters, 1 master node containter, 1 see
 
 This will create (1) master node and (1) seed node: 
 
-1. Seeding server on port 29377
-2. Masternode on port 29387
+2. Masternode on port 4848
 
 *all rewards goto you for helping out with the seeding. 
 
@@ -19,19 +20,12 @@ https://www.youtube.com/watch?v=yOjFrc1UXTc&feature=youtu.be
 
 What you need to do (general overview):
 
-1. Wallet - create master node - IP of your node:29387 
-2. Fund the received address with 15,000 coins (it may or may not charge you) it'll be live after 15 confirmations. 
-  - Send EXACTLY 15,000 coins - otherwise you will get errors. (our video walk through was wrong to send 15,010 coins)
+1. Wallet - create master node - IP of your node:4848 
+2. Fund the received address with 5,000 coins (it may or may not charge you) it'll be live after 15 confirmations. 
+  - Send EXACTLY 5,000 coins - otherwise you will get errors. (our video walk through was wrong to send 5,010 coins)
 3. Get config and input in the 1-time entry URL @ the IP of your server
    - After you input the key the website will never work again (if you make a mistake you'll have to reinstall)
 4. Click on your MN to start receiving payments.
-
-Notes : 
-
-Help us out, sign the petition for Hawaii to allow Coinbase: http://cryptohawaii.com
-
-If you want assistance email info@cryptohawaii.com
-
 
 ### Installation Instructions:
 
@@ -41,22 +35,22 @@ ssh to server and run
 
 Install withOUT SWAP
 ```
-bash -c "$(wget -O - https://raw.githubusercontent.com/CryptoHawaii-com/pepecoin-Dockerfiles/master/install.sh)"
+bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker.git/solariumcoin-Dockerfiles/master/install.sh)"
 ```
 
 Install with SWAP
 ```
-bash -c "$(wget -O - https://raw.githubusercontent.com/CryptoHawaii-com/pepecoin-Dockerfiles/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/CryptoHawaii-com/pepecoin-Dockerfiles/master/install.sh)"
+bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker.git/solariumcoin-Dockerfiles/master/createswap.sh)" && bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker.git/solariumcoin-Dockerfiles/master/install.sh)"
 ```
 
-Installation time takes approx 20 minutes, pepecoind will be compiled from the latest git pull, this part can be slow.
-Once the installation is completed you will have 1 running docker container. The name of the container is "pepecoin"
+Installation time takes approx 20 minutes, solariumcoind will be compiled from the latest git pull, this part can be slow.
+Once the installation is completed you will have 1 running docker container. The name of the container is "solariumcoin"
 
 `docker ps` 
 
 output will look similar to this:
 
-```f93f055fd7d7        pepecoin             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   pepecoin```
+```f93f055fd7d7        solariumcoin             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solariumcoin```
 
 **Required** 
 
@@ -64,11 +58,11 @@ You must now activate your master node or manually stop the webserver.
 
 Activating your master node is very simple. 
 When generating your masternodeprivkey configuration you will need the following details:
-We will be using port 29387 for the master node since 29377 is in use for the seed node
+We will be using port 4848 for the master node since 29377 is in use for the seed node
 
 ***serverip = your.server.ip.address***
 
-***serverport = 29387***
+***serverport = 4848***
 
 Browse to your servers ip address with https://
 
@@ -86,9 +80,9 @@ check that both containers are now running
 
 output will look similar to this:
 ```
-79edd506a5c3        pepecoinmasternode   "/root/.pepecoin/p..."   10 hours ago        Up 3 hours          0.0.0.0:29387->29387/tcp   pepecoinmasternode
+79edd506a5c3        solariumcoinmasternode   "/root/.solariumcoin/p..."   10 hours ago        Up 3 hours          0.0.0.0:4848->4848/tcp   solariumcoinmasternode
 
-f93f055fd7d7        pepecoin             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   pepecoin
+f93f055fd7d7        solariumcoin             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solariumcoin
 ```
 *OPTIONAL: If you are not a master node STOP the webserver*
 
@@ -107,7 +101,7 @@ We hope you choose to run a master node.
 ### Command Line Usage
 
 The following commands assume you have basic linux knowledge and have an ssh connection already established to your server. 
-There are 2 docker containers running: *pepecoin* and *pepecoinmasternode*
+There are 2 docker containers running: *solariumcoin* and *solariumcoinmasternode*
 
 **List running containers**
 
@@ -117,39 +111,40 @@ There are 2 docker containers running: *pepecoin* and *pepecoinmasternode*
 
 `docker exec -it CONTAINERNAME bash`
 
-where CONTAINERNAME is `pepecoin` or `pepecoinmasternode` (i.e. `docker exec -it pepecoinmasternode bash`)
+where CONTAINERNAME is `solariumcoin` or `solariumcoinmasternode` (i.e. `docker exec -it solariumcoinmasternode bash`)
 
 you will see a new root prompt once in the container 
 example output:
 ```
-root@localhost:~# docker exec -it pepecoin bash
+root@localhost:~# docker exec -it solariumcoin bash
 root@f93f055fd7d7:/#
 ```
 
-**pepecoind commands in container**
+**solariumcoind commands in container**
 
-Execute pepecoind commands within a container like this
+Execute solariumcoind commands within a container like this
 
-`/root/.pepecoin/pepecoind COMMAND`
+`/root/.solariumcoin/solariumcoind COMMAND`
 
 for example
 
-`/root/.pepecoin/pepecoind getinfo`
+`/root/.solariumcoin/solariumcoind getinfo`
 
-All files are located in /root/.pepecoin on each node
-pepecoin.conf is located /root/.pepecoin/pepcoin.conf
+All files are located in /root/.solariumcoin on each node
+solariumcoin.conf is located /root/.solariumcoin/pepcoin.conf
 
 If you found this helpful don't be shy to donate:
 
-MEME/PEPE : PWpvpjXvEuMEA42d1vGhZDMsoFCcHE9Aar
+solarium/slrc : 
 
-BTC : 1DMjyW6V5enMPhzDQBR9QeU3Rt8B6EFjUK
+BTC : 
 
-ZEN CASH : znUe52p5ZCrfFGLNBsJPgvdJMRcgeytoiQ2
+LTC : 
 
-LTC : LVh26vHmUirETSYmymkGJTCFyhNRACvuEL
+ETH : 
 
-ETH : 0x777ace7f2fbbbf29ad86d0a00e759953970393aa
+
+and ofcourse thanks go to the original script at: https://github.com/CryptoHawaii-com/pepecoin-Dockerfiles
 
 
 
