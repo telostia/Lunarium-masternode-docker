@@ -35,12 +35,12 @@ ssh to server and run
 
 Install withOUT SWAP
 ```
-bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker/master/install.sh)"
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/install.sh)"
 ```
 
 Install with SWAP
 ```
-bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker.git/solariumcoin-Dockerfiles/master/createswap.sh)" && bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker.git/solariumcoin-Dockerfiles/master/install.sh)"
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/install.sh)"
 ```
 
 Installation time takes approx 20 minutes, solariumcoind will be compiled from the latest git pull, this part can be slow.
