@@ -35,7 +35,7 @@ ssh to server and run
 
 Install withOUT SWAP
 ```
-bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker.git/solariumcoin-Dockerfiles/master/install.sh)"
+bash -c "$(wget -O - https://github.com/telostia/Lunarium-masternode-docker/master/install.sh)"
 ```
 
 Install with SWAP
