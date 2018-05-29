@@ -28,7 +28,7 @@ systemctl enable fail2ban
 systemctl start fail2ban
 
 #apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libminiupnpc-dev libgmp3-dev libdb-dev libdb++-dev libgmp3-dev
- apt install -y software-properties-common &&  add-apt-repository ppa:bitcoin/bitcoin &&  apt update &&  apt upgrade -y &&  apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf &&  apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils &&  apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git &&  apt install -y libminiupnpc-dev libzmq5
+ apt install -y software-properties-common && add-apt-repository ppa:bitcoin/bitcoin && apt update && apt upgrade -y && apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf &&  apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils && apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git &&  apt install -y libminiupnpc-dev libzmq5
 cd /root
 git clone https://github.com/solarium-community/solarium
 cd solarium/src
