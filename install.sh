@@ -28,19 +28,19 @@ systemctl enable fail2ban
 systemctl start fail2ban
 
 #apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libminiupnpc-dev libgmp3-dev libdb-dev libdb++-dev libgmp3-dev
-sudo apt install -y software-properties-common && sudo add-apt-repository ppa:bitcoin/bitcoin && sudo apt update && sudo apt upgrade -y && sudo apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf && sudo apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils && sudo apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git && sudo apt install -y libminiupnpc-dev libzmq5
+ apt install -y software-properties-common &&  add-apt-repository ppa:bitcoin/bitcoin &&  apt update &&  apt upgrade -y &&  apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf &&  apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils &&  apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git &&  apt install -y libminiupnpc-dev libzmq5
 cd /root
 git clone https://github.com/solarium-community/solarium
 cd solarium/src
 make -f makefile.unix USE_UPNP=-1
 #make -f makefile.unix
-strip Solariumd
-mv Solariumd ~/solarium
-cd ~/solarium
-rm -rf solarium
+#strip Solariumd
+#mv Solariumd ~/solarium
+#cd ~/solarium
+#rm -rf solarium
 
 #BOOTSTRAP CHAIN FILE
-apt-get -y install unzip
+#apt-get -y install unzip
 
 #COMMENT OUT SEED NODE
 
@@ -48,7 +48,7 @@ apt-get -y install unzip
 #cd && mkdir .Solarium && nano .Solarium/Solarium.conf
 cd /root/solarium/src
 rm /root/solarium/src/Dockerfile
-wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariumcoinmasternode/Dockerfile
+wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariummasternode/Dockerfile
 docker build -t "solariummasternode" .
 
 #SETUP WEB SERVER FOR MASTER NODE KEY
