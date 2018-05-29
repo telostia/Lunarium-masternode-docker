@@ -31,7 +31,7 @@ while inotifywait -e modify /var/www/masternodeprivkey/masternodeprivkey.txt; do
   docker run -d --restart always -p 4848:4848 --name solariummasternode solariummasternode /root/.solarium/Solariumd -datadir=/root/.solarium -conf=/root/.solarium/solarium.conf
   #cd /root/chainfile
   #docker cp ./ solariummasternode:/root/.solarium/
-  docker stop solariummasternode
+  #docker stop solariummasternode
   docker start solariummasternode
   systemctl stop apache2
   systemctl disable apache2
