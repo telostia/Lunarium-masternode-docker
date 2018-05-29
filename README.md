@@ -43,14 +43,14 @@ Install with SWAP
 bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/install.sh)"
 ```
 
-Installation time takes approx 20 minutes, solariumcoind will be compiled from the latest git pull, this part can be slow.
-Once the installation is completed you will have 1 running docker container. The name of the container is "solariumcoin"
+Installation time takes approx 20 minutes, Solariumd will be compiled from the latest git pull, this part can be slow.
+Once the installation is completed you will have 1 running docker container. The name of the container is "solarium"
 
 `docker ps` 
 
 output will look similar to this:
 
-```f93f055fd7d7        solariumcoin             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solariumcoin```
+```f93f055fd7d7        solarium             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solarium```
 
 **Required** 
 
@@ -80,9 +80,9 @@ check that both containers are now running
 
 output will look similar to this:
 ```
-79edd506a5c3        solariumcoinmasternode   "/root/.solariumcoin/p..."   10 hours ago        Up 3 hours          0.0.0.0:4848->4848/tcp   solariumcoinmasternode
+79edd506a5c3        solariummasternode   "/root/.solarium/p..."   10 hours ago        Up 3 hours          0.0.0.0:4848->4848/tcp   solariummasternode
 
-f93f055fd7d7        solariumcoin             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solariumcoin
+f93f055fd7d7        solarium             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solarium
 ```
 *OPTIONAL: If you are not a master node STOP the webserver*
 
@@ -101,7 +101,7 @@ We hope you choose to run a master node.
 ### Command Line Usage
 
 The following commands assume you have basic linux knowledge and have an ssh connection already established to your server. 
-There are 2 docker containers running: *solariumcoin* and *solariumcoinmasternode*
+There are 2 docker containers running: *solarium* and *solariummasternode*
 
 **List running containers**
 
@@ -111,27 +111,27 @@ There are 2 docker containers running: *solariumcoin* and *solariumcoinmasternod
 
 `docker exec -it CONTAINERNAME bash`
 
-where CONTAINERNAME is `solariumcoin` or `solariumcoinmasternode` (i.e. `docker exec -it solariumcoinmasternode bash`)
+where CONTAINERNAME is `solarium` or `solariummasternode` (i.e. `docker exec -it solariummasternode bash`)
 
 you will see a new root prompt once in the container 
 example output:
 ```
-root@localhost:~# docker exec -it solariumcoin bash
+root@localhost:~# docker exec -it solarium bash
 root@f93f055fd7d7:/#
 ```
 
-**solariumcoind commands in container**
+**solariumd commands in container**
 
-Execute solariumcoind commands within a container like this
+Execute solariumd commands within a container like this
 
-`/root/.solariumcoin/solariumcoind COMMAND`
+`/root/.solarium/solariumd COMMAND`
 
 for example
 
-`/root/.solariumcoin/solariumcoind getinfo`
+`/root/.solarium/solariumd getinfo`
 
-All files are located in /root/.solariumcoin on each node
-solariumcoin.conf is located /root/.solariumcoin/pepcoin.conf
+All files are located in /root/.solarium on each node
+solarium.conf is located /root/.solarium/pepcoin.conf
 
 If you found this helpful don't be shy to donate:
 
