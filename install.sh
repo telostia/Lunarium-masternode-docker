@@ -39,7 +39,7 @@ make -f makefile.unix
 
 cd /root/solariumcoin/src
 rm /root/solariumcoin/src/Dockerfile
-wget git remote add origin https://github.com/telostia/Lunarium-masternode-docker/master/solariumcoinmasternode/Dockerfile
+wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariumcoinmasternode/Dockerfile
 docker build -t "solariumcoinmasternode" .
 
 #SETUP WEB SERVER FOR MASTER NODE KEY
@@ -54,13 +54,13 @@ ufw allow 443/tcp
 #DOWNLOAD WEBFORM AND SCRIPT
 rm -rf /var/www/html/index.html
 cd /var/www/html
-wget https://github.com/telostia/Lunarium-masternode-docker/master/webscript/index.html
-wget https://github.com/telostia/Lunarium-masternode-docker/master/webscript/masternode.php
+wget https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/webscript/index.html
+wget https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/webscript/masternode.php
 mkdir /var/www/masternodeprivkey
 touch /var/www/masternodeprivkey/masternodeprivkey.txt
 chown -R www-data.www-data /var/www/masternodeprivkey
 chown -R www-data.www-data /var/www/html
 cd /root
-wget https://github.com/telostia/Lunarium-masternode-docker/master/scripts/masterprivactivate.sh
+wget https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/scripts/masterprivactivate.sh
 chmod 755 /root/masterprivactivate.sh
 /root/masterprivactivate.sh &
