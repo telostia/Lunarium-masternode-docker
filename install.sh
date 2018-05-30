@@ -28,17 +28,17 @@ systemctl enable fail2ban
 systemctl start fail2ban
 
 #build solarium source git
-apt-get -y install software-properties-common && add-apt-repository ppa:bitcoin/bitcoin && apt update && apt upgrade -y && apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf && apt install -y pkg-config libgmp3-dev libevent-dev bsdmainutils && apt install -y libevent-dev libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git && apt install -y libminiupnpc-dev libzmq5 libdb-dev libdb++-dev
+apt install -y software-properties-common && add-apt-repository ppa:bitcoin/bitcoin && apt update && apt upgrade -y && apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf && apt install -y pkg-config libgmp3-dev libevent-dev bsdmainutils && apt install -y libevent-dev libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git && apt install -y libminiupnpc-dev libzmq5 libdb-dev libdb++-dev
 cd /root
 git clone https://github.com/solarium-community/solarium
 cd solarium/src
 make -f makefile.unix USE_UPNP=-1
 #make -f makefile.unix
-strip Solariumd
-mv Solariumd ~/solarium
-cd ~/solarium
-rm -rf solarium
-cd && mkdir .Solarium
+#strip Solariumd
+#mv Solariumd ~/solarium
+#cd ~/solarium
+#rm -rf solarium
+#cd && mkdir .Solarium
 
 
 #building masternode
