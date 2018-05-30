@@ -25,9 +25,8 @@ while inotifywait -e modify /var/www/masternodeprivkey/masternodeprivkey.txt; do
   echo "masternode=1" >>/root/Solarium.conf
   echo "masternodeaddr=$IP:4848" >>/root/Solarium.conf
   docker run -d --name solmn solmn
-  docker cp /root/Solarium.conf solmn:/root/.Solarium/Solarium.conf
-  docker cp /root/Solariumd solmn:/root/solarium
-  docker cp /root/Solariumd solmn:/root/.Solarium
+  docker cp /root/Solarium.conf solmn:/root/.Solarium/
+  docker cp /root/solarium/Solariumd solmn:/root/solarium
   docker commit solmn solmn
   docker container rm solmn
   docker run -d --restart always -p 4848:4848 --name solmn solmn /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf

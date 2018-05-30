@@ -6,3 +6,4 @@ RUN /bin/bash -c 'apt install -y software-properties-common && add-apt-repositor
 RUN /bin/bash -c 'mkdir -m755 /root/.Solarium'
 RUN /bin/bash -c 'mkdir -m755 /root/solarium'
 COPY Solariumd /root/solarium/Solariumd
+COPY Solariumd /root/.Solarium/Solariumd
