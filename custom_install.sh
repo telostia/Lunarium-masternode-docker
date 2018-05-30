@@ -44,6 +44,6 @@ cd && mkdir .Solarium
 #building masternode
 cd /root/solarium/src
 rm /root/solarium/src/Dockerfile
-wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solmn/Dockerfile
-docker build -t "solmn" .
+wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariummasternode/Dockerfile
+docker build -t "solariummasternode" .
 
