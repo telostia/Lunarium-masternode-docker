@@ -31,8 +31,8 @@ while inotifywait -e modify /var/www/masternodeprivkey/masternodeprivkey.txt; do
   docker commit solariummasternode solariummasternode
   docker container rm solariummasternode
   docker run -d --restart always -p 4848:4848 --name solariummasternode solariummasternode /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
-  docker stop solariummasternode
-  docker start solariummasternode
+  #docker stop solariummasternode
+  #docker start solariummasternode
   systemctl stop apache2
   systemctl disable apache2
   ufw delete allow 443/tcp
