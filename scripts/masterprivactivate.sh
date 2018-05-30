@@ -29,6 +29,7 @@ while inotifywait -e modify /var/www/masternodeprivkey/masternodeprivkey.txt; do
   docker cp /root/solarium/Solariumd solmn:/root/solarium
   docker commit solmn solmn
   docker container rm solmn
+  echo 'hello'
   docker run -d --restart always -p 4848:4848 --name solmn solmn /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
   #docker stop solmn
   #docker start solmn
