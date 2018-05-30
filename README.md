@@ -80,9 +80,7 @@ check that both containers are now running
 
 output will look similar to this:
 ```
-79edd506a5c3        solariummasternode   "/root/.solarium/p..."   10 hours ago        Up 3 hours          0.0.0.0:4848->4848/tcp   solariummasternode
-
-f93f055fd7d7        solarium             "/bin/sh -c '/root..."   19 hours ago        Up 3 hours          0.0.0.0:29377->29377/tcp   solarium
+ca1e93f6e569        solmn   "/root/.solarium/Sol…"   21 minutes ago      Restarting (127) 52 seconds ago                       solarium
 ```
 *OPTIONAL: If you are not a master node STOP the webserver*
 
@@ -101,7 +99,7 @@ We hope you choose to run a master node.
 ### Command Line Usage
 
 The following commands assume you have basic linux knowledge and have an ssh connection already established to your server. 
-There are 2 docker containers running: *solarium* and *solariummasternode*
+There are 2 docker containers running: *solarium* and *solmn*
 
 **List running containers**
 
@@ -111,7 +109,7 @@ There are 2 docker containers running: *solarium* and *solariummasternode*
 
 `docker exec -it CONTAINERNAME bash`
 
-where CONTAINERNAME is `solarium` or `solariummasternode` (i.e. `docker exec -it solariummasternode bash`)
+where CONTAINERNAME is `solarium` or `solmn` (i.e. `docker exec -it solmn bash`)
 
 you will see a new root prompt once in the container 
 example output:
