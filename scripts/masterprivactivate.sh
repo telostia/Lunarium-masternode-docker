@@ -27,7 +27,7 @@ while inotifywait -e modify /var/www/masternodeprivkey/masternodeprivkey.txt; do
   docker run -d --name solariummasternode solariummasternode
   docker cp /root/Solarium.conf solariummasternode:/root/.Solarium/Solarium.conf
   docker commit solariummasternode solariummasternode
-  #docker container rm solariummasternode
+  docker container rm solariummasternode
   docker run -d --restart always -p 4848:4848 --name solariummasternode solariummasternode /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
   #cd /root/chainfile
   #docker cp ./ solariummasternode:/root/.Solarium/
