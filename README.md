@@ -133,7 +133,7 @@ solarium.conf is located /root/.solarium/pepcoin.conf
 
 If you found this helpful don't be shy to donate:
 
-solarium/slrc : 
+solarium/slrc : SfVF1nvNGmQRGYEY8rCsNkehyCxbhevZwi
 
 BTC : 
 
