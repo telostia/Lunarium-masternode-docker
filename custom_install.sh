@@ -34,12 +34,11 @@ git clone https://github.com/solarium-community/solarium
 cd solarium/src
 make -f makefile.unix USE_UPNP=-1
 #make -f makefile.unix
-#strip Solariumd
-#mv Solariumd ~/solarium
-#cd ~/solarium
-#rm -rf solarium
-
-#cd && mkdir .Solarium && nano .Solarium/Solarium.conf
+strip Solariumd
+mv Solariumd ~/solarium
+cd ~/solarium
+rm -rf solarium
+cd && mkdir .Solarium
 
 
 #building masternode

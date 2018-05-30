@@ -19,7 +19,7 @@ ufw default deny incoming
 ufw allow ssh/tcp
 ufw limit ssh/tcp
 ufw allow 4848/tcp
-ufw allow 4848/tcp
+ufw allow 4141/tcp
 ufw logging on
 ufw --force enable
 
@@ -27,29 +27,25 @@ apt -y install fail2ban
 systemctl enable fail2ban
 systemctl start fail2ban
 
-#apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev libminiupnpc-dev libgmp3-dev libdb-dev libdb++-dev libgmp3-dev
- apt install -y software-properties-common &&  add-apt-repository ppa:bitcoin/bitcoin &&  apt update &&  apt upgrade -y &&  apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf &&  apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils &&  apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git &&  apt install -y libminiupnpc-dev libzmq5
+#build solarium source git
+ apt install -y software-properties-common && add-apt-repository ppa:bitcoin/bitcoin && apt update && apt upgrade -y && apt install -y build-essential libtool autotools-dev automake pkg-config libssl-dev autoconf && apt install -y pkg-config libssl-dev libgmp3-dev libevent-dev bsdmainutils && apt install -y libevent-dev bsdmainutils libboost-all-dev libdb4.8-dev libdb4.8++-dev nano git && apt install -y libminiupnpc-dev libzmq5
 cd /root
 git clone https://github.com/solarium-community/solarium
 cd solarium/src
 make -f makefile.unix USE_UPNP=-1
 #make -f makefile.unix
-#strip Solariumd
-#mv Solariumd ~/solarium
-#cd ~/solarium
-#rm -rf solarium
-
-#BOOTSTRAP CHAIN FILE
-#apt-get -y install unzip
-
-#COMMENT OUT SEED NODE
+strip Solariumd
+mv Solariumd ~/solarium
+cd ~/solarium
+rm -rf solarium
+cd && mkdir .Solarium
 
 
-#cd && mkdir .Solarium && nano .Solarium/Solarium.conf
+#building masternode
 cd /root/solarium/src
 rm /root/solarium/src/Dockerfile
-wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariummasternode/Dockerfile
-docker build -t "solariummasternode" .
+wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solmn/Dockerfile
+docker build -t "solmn" .
 
 #SETUP WEB SERVER FOR MASTER NODE KEY
 openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs/ssl-cert-snakeoil.pem -keyout /etc/ssl/private/ssl-cert-snakeoil.key -subj "/C=AB/ST=AB/L=AB/O=IT/CN=mastertoad"
