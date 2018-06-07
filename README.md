@@ -44,7 +44,9 @@ bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-mastern
 ```
 
 Single docker usage for those that has docker already installed
+```
 bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install.sh)"
+```
 
 Installation time takes approx 20 minutes, Solariumd will be compiled from the latest git pull, this part can be slow.
 Once the installation is completed you will have 1 running docker container. The name of the container is "solarium"
