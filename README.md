@@ -33,11 +33,6 @@ Required: Fresh install Ubuntu 16.04
 
 ssh to server and run
 
-Install withOUT SWAP
-```
-bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/install.sh)"
-```
-
 Install with SWAP
 ```
 bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/install.sh)"
