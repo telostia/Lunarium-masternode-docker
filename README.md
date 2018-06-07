@@ -44,8 +44,25 @@ bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-mastern
 ```
 
 Single docker usage for those that has docker already installed
+
+port 4848/4141
 ```
-bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install.sh)"
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install_4848.sh)"
+```
+
+port 4849/4142
+```
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install_4849.sh)"
+```
+
+port 4850/4143
+```
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install_4850.sh)"
+```
+
+port 4851/4144
+```
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install_4851.sh)"
 ```
 
 Installation time takes approx 20 minutes, Solariumd will be compiled from the latest git pull, this part can be slow.
