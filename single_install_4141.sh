@@ -26,7 +26,7 @@ rm solarium.tar.bz2
 cd /root/solarium/src
 rm /root/solarium/src/Dockerfile
 wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariummasternode/Dockerfile
-docker build -t "solariummasternode4848" .
+docker build -t "solariummasternode4141" .
 
 #building the config files
 echo ---------------------------------------------------------------------------
