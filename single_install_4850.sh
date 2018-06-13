@@ -5,8 +5,10 @@ export DEBIAN_FRONTEND=noninteractive
 
 ufw allow ssh/tcp
 ufw limit ssh/tcp
-ufw allow 4850/tcp
-ufw allow 4143/tcp
+#port shouldnt change
+ufw allow 4848/tcp
+#rpcport
+ufw allow 4143/tcp 
 ufw logging on
 ufw --force enable
 
@@ -45,7 +47,7 @@ echo "rpcuser=$USERNAME" >/root/Solarium.conf
 echo "rpcpassword=$PASSWORD" >>/root/Solarium.conf
 echo "server=1" >>/root/Solarium.conf
 echo "listen=1" >>/root/Solarium.conf
-echo "port=4850" >>/root/Solarium.conf
+echo "port=4848" >>/root/Solarium.conf
 echo "rpcport=4143" >>/root/Solarium.conf
 echo "addnode=80.211.30.202" >>/root/Solarium.conf
 echo "addnode=195.181.216.245" >>/root/Solarium.conf
@@ -60,16 +62,16 @@ echo "addnode=159.89.29.101" >>/root/Solarium.conf
 echo "maxconnections=16" >>/root/Solarium.conf
 echo "masternodeprivkey=$MASTERNODEPRIVKEY" >>/root/Solarium.conf
 echo "masternode=1" >>/root/Solarium.conf
-echo "masternodeaddr=$IP:4850" >>/root/Solarium.conf
+echo "masternodeaddr=$IP:4848" >>/root/Solarium.conf
 #create masternode.conf content
 #echo $1 $2 $3 $4 $5>>~/.Solarium/masternode.conf
-#docker stop solariummasternode4850
-docker run -d --name solariummasternode4850 solariummasternode4850
-docker cp /root/Solarium.conf solariummasternode4850:/root/.Solarium/
-docker cp /root/solarium/Solariumd solariummasternode4850:/root/solarium
-docker commit solariummasternode4850 solariummasternode4850
-docker container rm solariummasternode4850
+#docker stop solariummasternodeRpg4143
+docker run -d --name solariummasternodeRpg4143 solariummasternodeRpg4143
+docker cp /root/Solarium.conf solariummasternodeRpg4143:/root/.Solarium/
+docker cp /root/solarium/Solariumd solariummasternodeRpg4143:/root/solarium
+docker commit solariummasternodeRpg4143 solariummasternodeRpg4143
+docker container rm solariummasternodeRpg4143
 echo 'hello'
-docker run -d --restart always -p 4850:4850 --name solariummasternode4850 solariummasternode4850 /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
-docker start solariummasternode4850
+docker run -d --restart always -p 4848:4848 --name solariummasternodeRpg4143 solariummasternodeRpg4143 /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
+docker start solariummasternodeRpg4143
 
