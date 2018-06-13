@@ -28,7 +28,7 @@ rm solarium.tar.bz2
 cd /root/solarium/src
 rm /root/solarium/src/Dockerfile
 wget git remote add origin https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/solariummasternode/Dockerfile
-docker build -t "solariummasternode4850" .
+docker build -t "solariummasternode4143" .
 
 #building the config files
 echo ---------------------------------------------------------------------------
@@ -65,13 +65,13 @@ echo "masternode=1" >>/root/Solarium.conf
 echo "masternodeaddr=$IP:4848" >>/root/Solarium.conf
 #create masternode.conf content
 #echo $1 $2 $3 $4 $5>>~/.Solarium/masternode.conf
-#docker stop solariummasternodeRpg4143
-docker run -d --name solariummasternodeRpg4143 solariummasternodeRpg4143
-docker cp /root/Solarium.conf solariummasternodeRpg4143:/root/.Solarium/
-docker cp /root/solarium/Solariumd solariummasternodeRpg4143:/root/solarium
-docker commit solariummasternodeRpg4143 solariummasternodeRpg4143
-docker container rm solariummasternodeRpg4143
+#docker stop solariummasternode4143
+docker run -d --name solariummasternode4143 solariummasternode4143
+docker cp /root/Solarium.conf solariummasternode4143:/root/.Solarium/
+docker cp /root/solarium/Solariumd solariummasternode4143:/root/solarium
+docker commit solariummasternode4143 solariummasternode4143
+docker container rm solariummasternode4143
 echo 'hello'
-docker run -d --restart always -p 4848:4848 --name solariummasternodeRpg4143 solariummasternodeRpg4143 /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
-docker start solariummasternodeRpg4143
+docker run -d --restart always -p 4848:4848 --name solariummasternode4143 solariummasternode4143 /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
+docker start solariummasternode4143
 
