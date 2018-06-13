@@ -64,12 +64,12 @@ echo "masternodeaddr=$IP:4848" >>/root/Solarium.conf
 #create masternode.conf content
 #echo $1 $2 $3 $4 $5>>~/.Solarium/masternode.conf
 #docker stop solariummasternode4848
-docker run -d --name solariummasternode4848 solariummasternode4848
-docker cp /root/Solarium.conf solariummasternode4848:/root/.Solarium/
-docker cp /root/solarium/Solariumd solariummasternode4848:/root/solarium
-docker commit solariummasternode4848 solariummasternode4848
-docker container rm solariummasternode4848
+docker run -d --name solariummasternode4141 solariummasternode4141
+docker cp /root/Solarium.conf solariummasternode4141:/root/.Solarium/
+docker cp /root/solarium/Solariumd solariummasternode4141:/root/solarium
+docker commit solariummasternode4141 solariummasternode4141
+docker container rm solariummasternode4141
 echo 'hello'
-docker run -d --restart always -p 4848:4848 --name solariummasternode4848 solariummasternode4848 /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
-docker start solariummasternode4848
+docker run -d --restart always -p 4848:4848 --name solariummasternode4141 solariummasternode4141 /root/solarium/Solariumd -datadir=/root/.Solarium -conf=/root/.Solarium/Solarium.conf
+docker start solariummasternode4141
 
