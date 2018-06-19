@@ -62,6 +62,12 @@ port 4848/4144
 bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install_4144.sh)"
 ```
 
+#rpcport changed to 4145. port remains the same
+port 4848/4145
+```
+bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/createswap.sh)" && bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/single_install_4145.sh)"
+```
+
 #docker only  install:
 ```
 bash -c "$(wget -O - https://raw.githubusercontent.com/telostia/Lunarium-masternode-docker/master/docker_install.sh)"
