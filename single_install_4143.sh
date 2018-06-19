@@ -68,7 +68,7 @@ echo "masternodeaddr=$IP:4848" >>/root/Solarium.conf
 #docker stop solariummasternode4143
 docker run -d --name solariummasternode4143 solariummasternode4143
 docker cp /root/Solarium.conf solariummasternode4143:/root/.Solarium/
-docker cp /root/solarium/Solariumd solariummasternode4143:/root/solarium
+docker cp /root/Solariumd solariummasternode4143:/root/solarium
 docker commit solariummasternode4143 solariummasternode4143
 docker container rm solariummasternode4143
 echo 'hello'
