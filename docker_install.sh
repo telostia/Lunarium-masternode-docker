@@ -12,18 +12,8 @@ apt -y -o Acquire::ForceIPv4=true update
 apt -y install docker-ce
 systemctl start docker
 systemctl enable docker
-docker pull ubuntu
 
-ufw default allow outgoing
-ufw default deny incoming
-ufw allow ssh/tcp
-ufw limit ssh/tcp
-ufw allow 4848/tcp
-ufw allow 4141/tcp
-ufw logging on
-ufw --force enable
-
-apt -y install fail2ban
-systemctl enable fail2ban
-systemctl start fail2ban
-
+#docker compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
